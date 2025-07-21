@@ -1,0 +1,23 @@
+---
+- name: Ping all hosts
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Ping test
+      ansible.builtin.ping:
+      register: ping_result
+
+    - name: Display ping result
+      ansible.builtin.debug:
+        msg: "Host {{ inventory_hostname }} is reachable"
+      when: ping_result is succeeded
+
+    - name: Display OS Info
+      ansible.builtin.command:
+        cmd: "uname -a"
+      changed_when: false
+      register: os_info
+
+    - name: Show OS information
+      ansible.builtin.debug:
+        msg: "OS Info: {{ os_info.stdout }}"

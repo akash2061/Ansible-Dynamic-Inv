@@ -1,0 +1,76 @@
+name: Ansible Dynamic Inventory Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ap-south-1
+  ANSIBLE_HOST_KEY_CHECKING: False
+
+jobs:
+  ansible-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip python3-venv
+
+      - name: Create virtual environment
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+          echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
+
+      - name: Install Python dependencies
+        run: |
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install ansible boto3 botocore
+
+      - name: Install Ansible AWS collection
+        run: |
+          source venv/bin/activate
+          ansible-galaxy collection install amazon.aws
+
+      - name: Save SSH Private Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.KEY_1 }}" > ~/.ssh/key.pem
+          chmod 400 ~/.ssh/key.pem
+
+      - name: Test Ansible installation
+        run: |
+          source venv/bin/activate
+          ansible --version
+
+      - name: Test dynamic inventory
+        run: |
+          source venv/bin/activate
+          ansible-inventory -i aws_ec2.yaml --list
+
+      - name: Ping all hosts
+        run: |
+          source venv/bin/activate
+          ansible all -i aws_ec2.yaml -m ping
+
+      - name: Run Ansible playbook
+        run: |
+          source venv/bin/activate
+          ansible-playbook -i aws_ec2.yaml playbooks/ping.yml
