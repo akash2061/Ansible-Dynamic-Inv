@@ -9,6 +9,6 @@ compose:
 
 keyed_groups:
   - key: os_tag
-    prefix: os_
+    prefix: os
   - key: tags.User
-    prefix: user_
+    prefix: user
