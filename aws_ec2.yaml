@@ -6,7 +6,6 @@ regions:
 compose:
   ansible_host: public_ip_address
   ansible_user: tags.User
-  ssh_key_tag: tags.SSHKey
   os_tag: tags.OS
 
 keyed_groups:
