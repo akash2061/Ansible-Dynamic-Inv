@@ -10,3 +10,5 @@ compose:
 keyed_groups:
   - key: os_tag
     prefix: os
+  - key: tags.User
+    prefix: user
