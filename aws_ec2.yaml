@@ -4,3 +4,6 @@ regions:
   # - multiple regions
 compose:
   ansible_host: public_ip_address
+keyed_groups:
+  - key: tags.User
+    prefix: user_
