@@ -1,0 +1,18 @@
+- name: Install Git and tools on all instances
+  hosts: all
+  become: true
+  tasks:
+    - name: Install packages
+      ansible.builtin.package:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Ubuntu specific task
+      ansible.builtin.debug:
+        msg: "This runs only on Ubuntu"
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: RHEL specific task
+      ansible.builtin.debug:
+        msg: "This runs only on RHEL"
+      when: ansible_facts['os_family'] == "RedHat"
