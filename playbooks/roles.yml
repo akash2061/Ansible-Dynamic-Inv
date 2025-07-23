@@ -1,0 +1,6 @@
+---
+- name: Apply nginx_on_ubuntu
+  hosts: os_ubuntu
+  become: true
+  roles:
+    - nginx_on_ubuntu

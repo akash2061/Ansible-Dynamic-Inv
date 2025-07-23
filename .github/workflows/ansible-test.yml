@@ -91,3 +91,8 @@ jobs:
           ansible all -i aws_ec2.yaml -m command -a "git --version"
           ansible all -i aws_ec2.yaml -m command -a "vim --version"
           ansible all -i aws_ec2.yaml -m command -a "wget --version"
+
+      - name: Run roles playbook
+        run: |
+          source venv/bin/activate
+          ansible-playbook -i aws_ec2.yaml playbooks/roles.yml
