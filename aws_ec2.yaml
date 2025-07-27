@@ -1,6 +1,7 @@
 plugin: amazon.aws.aws_ec2
 regions:
   - ap-south-1
+  - us-east-1
   # - multiple regions
 
 compose:
