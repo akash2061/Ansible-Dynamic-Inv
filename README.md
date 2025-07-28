@@ -2,6 +2,8 @@
 
 AEI is a mini project that demonstrates how to use **Ansible** with a **dynamic inventory** sourced from **AWS EC2 instances**. It's designed to be lightweight, beginner-friendly, and easy to extend.
 
+[![Ansible Dynamic Inventory Test](https://github.com/akash2061/Ansible-Dynamic-Inv/actions/workflows/ansible-test.yml/badge.svg)](https://github.com/akash2061/Ansible-Dynamic-Inv/actions/workflows/ansible-test.yml)
+
 ## 🎯 Overview
 
 This project showcases how to manage AWS EC2 instances dynamically using Ansible. Instead of maintaining static inventory files, it automatically discovers and groups EC2 instances based on their tags and properties. The project includes:
@@ -221,6 +223,26 @@ ansible-playbook -i aws_ec2.yaml playbooks/package.yml -vvv
 # Run with specific user
 ansible-playbook -i aws_ec2.yaml playbooks/package.yml --user ubuntu
 ```
+
+## 📸 Screenshots
+
+### Single Host Ping Test
+![Single Host Ping](assets/Single-Host-Ping.png)
+
+### Multi-Host Ping Test
+![Multi-Host Ping](assets/Multi-Host-Ping.png)
+
+### Running Playbooks
+![Run PlayBook](assets/Run-PlayBook.png)
+
+### Multi-Host PlayBook Execution
+![Run Multi-Host PlayBook](assets/Run-Multi-Host-PlayBook.png)
+
+### Package Installation and Roles
+![Package Version and Roles](assets/Package-Version_and_Roles.png)
+
+### Nginx Test Page
+![Nginx Test Page](assets/Nginx-Test-Page.png)
 
 ## 🔍 Troubleshooting
 
