@@ -2,7 +2,7 @@
 
 AEI is a mini project that demonstrates how to use **Ansible** with a **dynamic inventory** sourced from **AWS EC2 instances**. It's designed to be lightweight, beginner-friendly, and easy to extend.
 
-[![Ansible Dynamic Inventory Test](https://github.com/akash2061/Ansible-Dynamic-Inv/actions/workflows/ansible-test.yml/badge.svg)](https://github.com/akash2061/Ansible-Dynamic-Inv/actions/workflows/ansible-test.yml)
+[![Ansible Dynamic Inventory Test](https://github.com/akash2061/Ansible-Elastic-Inv/actions/workflows/ansible-test.yml/badge.svg)](https://github.com/akash2061/Ansible-Elastic-Inv/actions/workflows/ansible-test.yml)
 
 ## 🎯 Overview
 
@@ -51,7 +51,7 @@ pip install boto3 botocore
 ## 📁 Project Structure
 
 ```
-Ansible-Dynamic-Inv/
+Ansible-Elastic-Inv/
 ├── ansible.cfg                    # Ansible configuration
 ├── aws_ec2.yaml                   # Dynamic inventory configuration
 ├── README.md                      # This file
