@@ -20,6 +20,19 @@ Before using this project, ensure you have:
 - **AWS CLI** configured with appropriate credentials
 - **boto3** and **botocore** Python packages
 - **amazon.aws** Ansible collection
+- **AWS IAM User/Role** with appropriate permissions
+
+### Required AWS IAM Permissions
+
+#### Recommended IAM Policy:
+For better functionality, attach the **AmazonEC2FullAccess** `[For Learning/Testing Purpose]` managed policy to your IAM user/role.
+
+#### Creating an IAM User for Ansible:
+1. Go to AWS IAM Console
+2. Create a new user (e.g., `ansible-user`)
+3. Attach the policy `AmazonEC2FullAccess`
+4. Generate Access Keys for programmatic access
+5. Use these credentials in your AWS CLI configuration
 
 ### Required Ansible Collections
 
