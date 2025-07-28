@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MIT-0
 galaxy_info:
   author: morningstar_2061 (akash2061)
-  description: your role description
-  company: ExampleCorp
+  description: Ansible role for deploying nginx applications
+  company: MorningstarCorp
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
