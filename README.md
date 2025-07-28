@@ -226,6 +226,9 @@ ansible-playbook -i aws_ec2.yaml playbooks/package.yml --user ubuntu
 
 ## 📸 Screenshots
 
+### Dynamic Inventory
+![AWS_EC2-Inventory](assets/inventory_aws_ec2.png)
+
 ### Single Host Ping Test
 ![Single Host Ping](assets/Single-Host-Ping.png)
 
